@@ -1,6 +1,6 @@
-#include "CalculatorApp.h"
+#include "CalculatorView.h"
 
-calc::CalculatorApp::CalculatorApp() {
+calc::CalculatorView::CalculatorView() {
   set_title("Calculator");
   set_border_width(12);
 
@@ -10,7 +10,7 @@ calc::CalculatorApp::CalculatorApp() {
   show_all_children();
 }
 
-void calc::CalculatorApp::configure_widgets() {
+void calc::CalculatorView::configure_widgets() {
   primary_entry.set_editable(false);
   primary_entry.set_can_focus(false);
 
@@ -53,7 +53,7 @@ void calc::CalculatorApp::configure_widgets() {
   button_clear.signal_clicked().connect([&]() { on_clear_clicked(); });
 }
 
-void calc::CalculatorApp::layout_widgets() {
+void calc::CalculatorView::layout_widgets() {
   add(grid);
   grid.set_row_spacing(6);
   grid.set_column_spacing(6);
@@ -83,24 +83,24 @@ void calc::CalculatorApp::layout_widgets() {
   grid.attach(button_dot, 2, 5, 1, 1);
 }
 
-void calc::CalculatorApp::on_digit_clicked(char digit) {
-  calc.add_digit(digit);
-  primary_entry.set_text(calc.get_display_value());
+void calc::CalculatorView::on_digit_clicked(char digit) {
+  controller.add_digit(digit);
+  primary_entry.set_text(controller.get_display_value());
 }
 
-void calc::CalculatorApp::on_operation_clicked(calc::CalcOp op) {
-  calc.set_operation(op);
-  calc.store_display_value();
-  primary_entry.set_text(calc.get_display_value());
+void calc::CalculatorView::on_operation_clicked(calc::CalcOp op) {
+  controller.set_operation(op);
+  controller.store_display_value();
+  primary_entry.set_text(controller.get_display_value());
 }
 
-void calc::CalculatorApp::on_equal_clicked() {
-  calc.calculate();
-  primary_entry.set_text(calc.get_display_value());
+void calc::CalculatorView::on_equal_clicked() {
+  controller.calculate();
+  primary_entry.set_text(controller.get_display_value());
 }
 
-void calc::CalculatorApp::on_clear_clicked() {
-  calc.clear_display();
-  calc.store_display_value();
-  primary_entry.set_text(calc.get_display_value());
+void calc::CalculatorView::on_clear_clicked() {
+  controller.clear_display();
+  controller.store_display_value();
+  primary_entry.set_text(controller.get_display_value());
 }

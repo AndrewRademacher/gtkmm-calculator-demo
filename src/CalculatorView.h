@@ -4,14 +4,14 @@
 #include <gtkmm/grid.h>
 #include <gtkmm/entry.h>
 #include <gtkmm/button.h>
-#include "Calculator.h"
+#include "CalculatorController.h"
 
 namespace calc {
 
-class CalculatorApp : public Gtk::Window {
+class CalculatorView : public Gtk::Window {
 public:
-  CalculatorApp();
-  ~CalculatorApp() override = default;
+  CalculatorView();
+  ~CalculatorView() override = default;
 
 protected:
   // Init
@@ -49,7 +49,7 @@ protected:
   Gtk::Button button_clear;
 
   // Member controllers
-  Calculator calc;
+  CalculatorController controller;
 };
 
 }

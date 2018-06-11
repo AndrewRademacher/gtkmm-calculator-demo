@@ -11,9 +11,9 @@ enum class CalcOp {
   Div
 };
 
-class Calculator {
+class CalculatorController {
 public:
-  Calculator();
+  CalculatorController();
 
   void add_digit(char digit);
   void clear_display();

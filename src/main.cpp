@@ -1,9 +1,9 @@
 #include <gtkmm.h>
-#include "CalculatorApp.h"
+#include "CalculatorView.h"
 
 int main(int argc, char* argv[]) {
   Gtk::Main kit(argc, argv);
-  calc::CalculatorApp calcapp;
+  calc::CalculatorView calcapp;
   Gtk::Main::run(calcapp);
   return EXIT_SUCCESS;
 }

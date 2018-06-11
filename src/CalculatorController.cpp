@@ -1,10 +1,10 @@
 #include <sstream>
-#include "Calculator.h"
+#include "CalculatorController.h"
 
-calc::Calculator::Calculator()
+calc::CalculatorController::CalculatorController()
     : display_value(""), stored_value(0), operation(CalcOp::Plus) {}
 
-void calc::Calculator::add_digit(char digit) {
+void calc::CalculatorController::add_digit(char digit) {
   if (digit == '.') {
     if (!std::count(display_value.begin(), display_value.end(), '.')) {
       display_value.push_back('.');
@@ -14,23 +14,23 @@ void calc::Calculator::add_digit(char digit) {
   }
 }
 
-void calc::Calculator::clear_display() {
+void calc::CalculatorController::clear_display() {
   display_value.clear();
 }
 
-const std::string& calc::Calculator::get_display_value() {
+const std::string& calc::CalculatorController::get_display_value() {
   return display_value;
 }
 
-void calc::Calculator::set_operation(calc::CalcOp op) {
+void calc::CalculatorController::set_operation(calc::CalcOp op) {
   operation = op;
 }
 
-calc::CalcOp calc::Calculator::get_operation() {
+calc::CalcOp calc::CalculatorController::get_operation() {
   return operation;
 }
 
-void calc::Calculator::calculate() {
+void calc::CalculatorController::calculate() {
   char* end;
   double input = std::strtod(display_value.data(), &end);
   switch (operation) {
@@ -49,11 +49,11 @@ void calc::Calculator::calculate() {
   display_value = ss.str();
 }
 
-double calc::Calculator::get_stored_value() {
+double calc::CalculatorController::get_stored_value() {
   return stored_value;
 }
 
-void calc::Calculator::store_display_value() {
+void calc::CalculatorController::store_display_value() {
   char* end;
   stored_value = display_value.empty() ? 0 : std::strtod(display_value.data(), &end);
   display_value = "";
