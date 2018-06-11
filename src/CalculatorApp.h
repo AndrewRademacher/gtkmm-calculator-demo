@@ -1,7 +1,3 @@
-//
-// Created by Andrew Rademacher on 6/10/18.
-//
-
 #pragma once
 
 #include <gtkmm/window.h>

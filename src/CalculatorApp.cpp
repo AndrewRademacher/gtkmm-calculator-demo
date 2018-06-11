@@ -1,4 +1,3 @@
-#include <iostream>
 #include "CalculatorApp.h"
 
 calc::CalculatorApp::CalculatorApp() {
