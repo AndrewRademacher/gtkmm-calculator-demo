@@ -8,7 +8,7 @@ find_package(PkgConfig REQUIRED)
 pkg_check_modules(GTKMM REQUIRED gtkmm-3.0)
 link_directories(${GTKMM_LIBRARY_DIRS})
 
-add_executable(calculator src/main.cpp src/CalculatorView.cpp src/CalculatorView.h src/CalculatorController.cpp src/CalculatorController.h)
+add_executable(calculator src/main.cpp src/calc/CalculatorView.cpp src/calc/CalculatorView.h src/calc/CalculatorController.cpp src/calc/CalculatorController.h src/LoginWindow.cpp src/LoginWindow.h src/DrawWindow.cpp src/DrawWindow.h src/ImageWindow.cpp src/ImageWindow.h)
 target_include_directories(calculator PRIVATE ${GTKMM_INCLUDE_DIRS})
 target_link_libraries(calculator
         ${GTKMM_LIBRARIES})
